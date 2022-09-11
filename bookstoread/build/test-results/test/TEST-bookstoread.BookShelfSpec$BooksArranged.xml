@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Is arranged" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-09-11T19:57:44" hostname="DESKTOP-JJTERBG" time="0.122">
+  <properties/>
+  <testcase name="must bookshelf be arranged by user provided criteria" classname="bookstoread.BookShelfSpec$BooksArranged" time="0.097"/>
+  <testcase name="books inside bookshelf are grouped by publication year" classname="bookstoread.BookShelfSpec$BooksArranged" time="0.019"/>
+  <testcase name="books inside bookshelf are grouped according to user provided criteria(group by author name)" classname="bookstoread.BookShelfSpec$BooksArranged" time="0.002"/>
+  <testcase name="must books be arranged by book title" classname="bookstoread.BookShelfSpec$BooksArranged" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
