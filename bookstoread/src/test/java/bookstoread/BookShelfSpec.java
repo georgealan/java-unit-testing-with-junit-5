@@ -178,7 +178,3 @@ public class BookShelfSpec {
 }
 
 // TODO Continue in page 72
-/*
-TODO DOWNLOADING THE MOCKITO IMPLEMENTATION:
- Search in Maven repository 'org.mockito:mockito-core:2.+' find the latest version in Maven repository.
- */
