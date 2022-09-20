@@ -9,19 +9,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/*
+JUnit 5 introduced the concept of ParameterResolver, which provides an API
+to resolve parameters at runtime. You can either use a built-in parameter resolver
+like TestInfoParameterResolver or provide your own resolver by implementing
+ParameterResolver interface. ParameterResolver is part of the JUnit 5 extension
+mechanism.
+ */
 public class BooksParameterResolver implements ParameterResolver {
+    private final Map<String, Book> books;
 
-    @Override
-    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
-            throws ParameterResolutionException {
-        Parameter parameter = parameterContext.getParameter();
-        return Objects.equals(parameter.getParameterizedType()
-                .getTypeName(), "java.util.Map<java.lang.String, bookstoread.Book>");
-    }
-
-    @Override
-    public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
-            throws ParameterResolutionException {
+    public BooksParameterResolver() {
         Map<String, Book> books = new HashMap<>();
 
         books.put("Effective Java", new Book("Effective Java", "Joshua Bloch",
@@ -40,6 +38,24 @@ public class BooksParameterResolver implements ParameterResolver {
                 new Book("Refactoring: Improving the Design of Existing Code", "Martin Fowler",
                         LocalDate.of(2002, Month.MARCH, 9)));
 
+        this.books = books;
+    }
+    @Override
+    public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
+            throws ParameterResolutionException {
+        Parameter parameter = parameterContext.getParameter();
+        return Objects.equals(parameter.getParameterizedType()
+                .getTypeName(), "java.util.Map<java.lang.String, bookstoread.Book>");
+    }
+
+    @Override
+    public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
+            throws ParameterResolutionException {
+        ExtensionContext.Store store = extensionContext.getStore(ExtensionContext.Namespace.create(Book.class));
+        return store.getOrComputeIfAbsent("books", k -> getBooks());
+    }
+
+    private Object getBooks() {
         return books;
     }
 }

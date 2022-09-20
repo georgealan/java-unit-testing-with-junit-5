@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Is Empty" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-09-11T19:57:44" hostname="DESKTOP-JJTERBG" time="0.004">
-  <properties/>
-  <testcase name="bookshelf is empty when no book is added to it" classname="bookstoread.BookShelfSpec$IsEmpty" time="0.001"/>
-  <testcase name="Must be empty bookshelf when add is called without books" classname="bookstoread.BookShelfSpec$IsEmpty" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

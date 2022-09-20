@@ -13,7 +13,7 @@ import java.util.*;
 /*
  Is normaly written test classes tha end with Test or Tests, this book follow the behavior-driven-development
  (BDD) naming convention. The *Test naming convention forces you to think that your unit tests are the only
- quality assurance facility here we wanto to think in terms of behavior specification so Tests here will
+ quality assurance facility here we want to think in terms of behavior specification so Tests here will
  end with Spec.
 
  With @DisplayName annotation you can name a class, method for more legible reading.
@@ -23,7 +23,10 @@ import java.util.*;
  then will skip all tests inside the respective class.
  */
 
-
+/*
+To make your test aware of your own custom resolver, you should annotate your test class with the
+ExtendWith annotation,providing it the resolver class as shown in the following code below:
+ */
 @DisplayName("A BookShelf")
 @ExtendWith(BooksParameterResolver.class)
 public class BookShelfSpec {
